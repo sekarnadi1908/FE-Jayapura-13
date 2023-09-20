@@ -1,79 +1,104 @@
-
-input[type="text"] {
+.container-games {
+    margin-top: 30px;
+    /* background-color: red; */
+    display: block;
+    width: 65%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .container-games h1 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+  
+  .container-games .games-content {
+    text-align: center;
+    padding: 10px 10px;
+  }
+  
+  input[type="text"] {
     padding: 10px;
     width: 60%;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-button {
+  }
+  
+  button {
     padding: 10px 15px;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background-color: #0056b3;
-}
-
-ul {
+  }
+  
+  ul {
     list-style-type: none;
     padding: 0;
-}
-
-li {
-    background-color: #fff;
+    padding: 10px 20px;
+  }
+  
+  li {
+    background-color: #d7d7d7;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-li button#delete {
+  }
+  
+  li button#delete {
     background-color: #ff4b5c;
     margin-left: 5px;
-}
-
-li button#delete:hover {
+  }
+  
+  li button#delete:hover {
     background-color: #e5283e;
-}
-
-li input[type="text"] {
+  }
+  
+  li input[type="text"] {
     padding: 8px;
     width: 60%;
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-right: 5px;
-}
-
-li .save {
-    background-color: #4CAF50; 
-}
-
-li .save:hover {
+  }
+  
+  li .save {
+    background-color: #4caf50;
+  }
+  
+  li .save:hover {
     background-color: #45a049;
-}
-
-li button#edit {
+  }
+  
+  li button#edit {
     background-color: #289de5;
-}
-
-li button#edit:hover {
+  }
+  
+  li button#edit:hover {
     background-color: #289de5;
-}
-
-
-
-li div#wrapper-btn {
+  }
+  
+  li div#wrapper-btn {
     display: flex;
-   justify-content: flex-end;
-}
+    justify-content: flex-end;
+  }
+  
+  
+  
