@@ -501,3 +501,23 @@ h6,
     padding-right: 0;
     border-right: none;
 }
+
+
+element.style {
+    max-width: 600px;
+    visibility: visible;
+    animation-delay: 0.1s;
+    animation-name: fadeInUp;
+    background-image: url(img/wallpaper.jpg);
+    background-size: cover;
+
+}
+
+.wallpaper {
+    padding-bottom: 80px;
+    background-image:url(img/wallpaper.jpg);
+    background-size: cover;
+    text-align: center;
+    font-family: 'Itim', cursive;
+}
+

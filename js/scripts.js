@@ -10,17 +10,22 @@ function closeForm() {
 let tasks = [];
 
 function addTask() {
-  const taskInput = document.getElementById("newTask, newPicture");
+  const taskInput = document.getElementById("newTask");
+  const taskInputPicture = document.getElementById("newPicture");
   const taskValue = taskInput.value.trim();
-  const pictureValue = taskInput.value.trim();
+  const pictureValue = taskInputPicture.value.trim();
 
-  if (taskValue, pictureValue) {
-    tasks.push(taskValue);
-    pictures.push(pictureValue);
-    renderTasks();
+  if (taskValue && pictureValue) {
+    tasks.push(
+      {
+        task: taskValue,
+        picture: pictureValue
+      }
+    );
     taskInput.value = "";
-    renderPictures();
-    pictureInput.value = "";
+    taskInputPicture.value = "";
+    renderTasks();
+    closeForm()
   }
 }
 
@@ -28,54 +33,25 @@ function renderTasks() {
   const list = document.getElementById("games");
   list.innerHTML = "";
   tasks.forEach((task, index) => {
+
     list.innerHTML += `
             <li>
-                ${task}
-                <input type="text" id="edit-${index}" value="${task}" style="display: none;">
-                <div id="wrapper-btn">
-                    <button onclick="editTask(${index})" id="edit">Edit</button>
-                    <button onclick="saveTask(${index})" class="save" id="save-${index}" style="display: none;">Save</button>
-                    <button onclick="removeTask(${index})" id="delete">Hapus</button>
+              <a href="${task.task}">
+                <div style="display: flex; flex-direction: column; alig-items: center;">
+                  <div class="gambar">
+                    <img id="edit-${index}" src="${task.picture}" />
+                  </div>
+                  <div class="judul">
+                  <p></p>
+                  <button type="button" class="btn-link" href="${task.task}">Play The Game</button>
+                    </a>
+                  </div>
                 </div>
+              </a>
             </li>`;
   });
 }
 
-function renderPictures() {
-  const list = document.getElementById("games");
-  list.innerHTML = "";
-  pictures.forEach((picture, index) => {
-    list.innerHTML += `
-            <li>
-                ${picture}
-                <input type="text" id="edit-${index}" value="${picture}" style="display: none;">
-                <div id="wrapper-btn">
-                    <button onclick="editTask(${index})" id="edit">Edit</button>
-                    <button onclick="saveTask(${index})" class="save" id="save-${index}" style="display: none;">Save</button>
-                    <button onclick="removeTask(${index})" id="delete">Hapus</button>
-                </div>
-            </li>`;
-  });
-}
 
-function removeTask(index) {
-  tasks.splice(index, 1);
-  renderTasks();
-}
 
-function editTask(index) {
-  document.getElementById(`edit-${index}`).style.display = "inline-block";
-  document.getElementById(`save-${index}`).style.display = "inline-block";
-}
-
-function saveTask(index) {
-  const editedTask = document.getElementById(`edit-${index}`).value.trim();
-
-  if (editedTask) {
-    tasks[index] = editedTask;
-    renderTasks();
-  } else {
-    alert("Task tidak boleh kosong!");
-  }
-}
-
+renderTasks()
