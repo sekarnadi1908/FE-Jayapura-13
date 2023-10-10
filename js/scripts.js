@@ -7,7 +7,6 @@ function closeForm() {
 }
 
 
-let tasks = [];
 
 function addTask() {
   const taskInput = document.getElementById("newTask");
@@ -15,43 +14,31 @@ function addTask() {
   const taskValue = taskInput.value.trim();
   const pictureValue = taskInputPicture.value.trim();
 
-  if (taskValue && pictureValue) {
-    tasks.push(
-      {
-        task: taskValue,
-        picture: pictureValue
-      }
-    );
-    taskInput.value = "";
-    taskInputPicture.value = "";
-    renderTasks();
-    closeForm()
-  }
+  // Buat objek data
+  const data = {
+    linkGames: taskValue,
+    linkPictures: pictureValue
+};
+
+// Kirim data sebagai JSON
+fetch('https://be-jayapura-13-production.up.railway.app/games', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        alert('Terima kasih! Data telah ditambahkan.');
+        taskInput.value = "";
+        taskInputPicture.value = "";
+        closeForm()
+        window.location.reload();
+    } else {
+        alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
+    }
+})
+.catch(error => console.error('Error sending contact data:', error));
 }
-
-function renderTasks() {
-  const list = document.getElementById("games");
-  list.innerHTML = "";
-  tasks.forEach((task, index) => {
-
-    list.innerHTML += `
-            <li>
-              <a href="${task.task}">
-                <div style="display: flex; flex-direction: column; alig-items: center;">
-                  <div class="gambar">
-                    <img id="edit-${index}" src="${task.picture}" />
-                  </div>
-                  <div class="judul">
-                  <p></p>
-                  <button type="button" class="btn-link" href="${task.task}">Play The Game</button>
-                    </a>
-                  </div>
-                </div>
-              </a>
-            </li>`;
-  });
-}
-
-
-
-renderTasks()

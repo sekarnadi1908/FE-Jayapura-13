@@ -79,14 +79,12 @@
         <h1>Add The Games Here</h1>
         <div class="games-content">
           <button class="open-button" onclick="openForm()">ADD GAMES</button>
-          <p></p><p></p><p></p>
-          <section>
-            <div class="flex" id="games">
-            </div>
-          </section>
         </div>
       </div>
       <!-- Games End -->
+
+      <section id="games-list">
+      </section>
 
       <!--For Games Pop Up-->
 
@@ -96,10 +94,10 @@
           <h1>Fill The Blank For Add Games</h1>
       
           <label for="email"><b>Pictures Games</b></label>
-          <input type="text" id="newPicture" placeholder="Link Pictures Games" required>
+          <input type="text" id="newPicture" placeholder="Link Pictures Games" required name="link-pictures">
       
           <label for="psw"><b>Games</b></label>
-          <input type="text" id="newTask"  placeholder="Link Games" required>
+          <input type="text" id="newTask"  placeholder="Link Games" required name="link-games"> 
       
           <button type="button" onclick="addTask()" class="btn">Add Games</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -149,5 +147,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
